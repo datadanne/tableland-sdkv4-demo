@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { Database } from "@tableland/sdk";
+import { getContractReceipt } from "@tableland/sdk/helpers";
+
+const db = Database.readOnly(1);
+db.prepare("SELECT * FROM users WHERE id = 1337").all();
 
 function App() {
   const [count, setCount] = useState(0)
